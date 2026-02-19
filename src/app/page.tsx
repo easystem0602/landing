@@ -16,7 +16,7 @@ export default function Home() {
             aria-hidden
           />
           <p className="text-lg font-medium text-slate-200">
-            현재 시스템 개선 중입니다.
+            현재 시스템 개선 중입니다...
           </p>
         </div>
       </div>
