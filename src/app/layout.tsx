@@ -28,7 +28,7 @@ export const metadata = {
     url : 'https://www.easystem.kr',
     images: [
       {
-        url: 'images/ea_ogimage.webp.webp',
+        url: 'images/ea-ogimage.webp',
         width: 1200,
         height: 630,
         alt: 'EAsystem - 항공우주 구조설계·해석·시험지원 엔지니어링',
@@ -42,7 +42,7 @@ export const metadata = {
     title: "EAsystem | 항공우주 구조설계·해석·시험지원 엔지니어링",
     description:
     "발사체·항공 구조설계/해석, 3D 전산설계·도면, 시험지원 및 시험장비 개발까지. 근거 기반 검증으로 미션 성공을 돕는 EAsystem.",
-    images: ['images/ea_ogimage.webp.webp'],
+    images: ['images/ea-ogimage.webp'],
   },
   icons: {
     icon: [
