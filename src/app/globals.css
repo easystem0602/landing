@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -18,4 +22,18 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 이미지 다운로드/저장 방지 (우클릭, 드래그, 롱탭 메뉴) */
+.no-download {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+.no-download img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none; /* 하위 img 직접 조작 차단 */
 }
