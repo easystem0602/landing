@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
-import { X } from "lucide-react";
+import { Loader2, X } from "lucide-react";
 
 const MAX_ATTACHMENTS = 3;
 const MAX_TOTAL_SIZE_MB = 10;
@@ -80,7 +80,19 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5 rounded-2xl border border-slate-700 bg-slate-800/50 p-6">
+    <div className="relative">
+      {status === "loading" && (
+        <div
+          className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 rounded-2xl bg-black/70"
+          aria-live="polite"
+          role="status"
+          aria-label="전송 중"
+        >
+          <Loader2 className="h-10 w-10 animate-spin text-indigo-400" strokeWidth={2} aria-hidden />
+          <p className="text-lg font-medium text-white">메일 전송 중...</p>
+        </div>
+      )}
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5 rounded-2xl border border-slate-700 bg-slate-800/50 p-6">
       <div>
         <label htmlFor="contact-affiliation" className="mb-1 block text-base font-medium text-white">
           소속/학교
@@ -198,5 +210,6 @@ export default function ContactForm() {
         </button>
       </div>
     </form>
+    </div>
   );
 }

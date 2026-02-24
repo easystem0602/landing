@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 const RECIPIENT_EMAILS = ["jhpark@easystem.kr", "hspark@easystem.kr"];
+// const RECIPIENT_EMAILS = ["official@motius.co.kr", "eeyore0424@gmail.com"];
 const SUBJECT = "💌 홈페이지에서 새로운 문의가 도착했어요";
 const MAX_ATTACHMENTS = 3;
 const MAX_TOTAL_SIZE_BYTES = 10 * 1024 * 1024; // 10MB

@@ -374,19 +374,31 @@ export default function Home() {
         </section>
 
         {/* ========== 지도 및 사업문의 ========== */}
-        <section id="contact" className="border-t border-slate-800/50 px-6 py-24 sm:px-8">
-          <div className="mx-auto max-w-6xl">
-            <h2 className="mb-4 text-center text-3xl font-semibold text-white sm:text-4xl">Contact Us</h2>
-            <p className="mb-16 text-center text-lg text-slate-400">
-            구조설계·해석, 시험지원, 공동개발 등<br className="sm:hidden" />협업이 필요하신가요?
-              <br />
-              문의 내용을 남겨주시면 담당 엔지니어가 검토 후<br className="sm:hidden" />안내드리겠습니다.
-            </p>
+        <section id="contact" className="border-t border-slate-800/70">
+          {/* Contact Us ~ 문의 폼까지: 전체 너비 배경 이미지 */}
+          <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden px-6 pt-24 pb-12 sm:px-8">
+            <div className="absolute inset-0 overflow-hidden">
+              <Image
+                src="/images/ea-contactus.webp"
+                alt=""
+                fill
+                className="object-cover object-center scale-105"
+                sizes="100vw"
+              />
+              <div className="absolute inset-0 bg-black/75" aria-hidden />
+            </div>
+            <div className="relative z-10 mx-auto max-w-6xl">
+              <h2 className="mb-4 text-center text-3xl font-semibold text-white sm:text-4xl">Contact Us</h2>
+              <p className="mb-16 text-center text-lg text-slate-400">
+                구조설계·해석, 시험지원, 공동개발 등<br className="sm:hidden" />협업이 필요하신가요?
+                <br />
+                문의 내용을 남겨주시면 담당 엔지니어가 검토 후<br className="sm:hidden" />안내드리겠습니다.
+              </p>
 
-            {/* 회사정보 + 문의폼 그리드 (양쪽 높이 동일) — 먼저 표시 */}
-            <div className="mb-16 grid gap-12 lg:grid-cols-2 lg:items-stretch">
-              {/* 왼쪽: 회사 간략 정보 */}
-              <div className="flex h-full min-h-0 flex-col items-center justify-center gap-8 rounded-2xl border border-slate-700 bg-slate-800/50 p-6 text-center">
+              {/* 회사정보 + 문의폼 그리드 (양쪽 높이 동일) — 먼저 표시 */}
+              <div className="mb-8 grid gap-12 lg:grid-cols-2 lg:items-stretch">
+                {/* 왼쪽: 회사 간략 정보 */}
+                <div className="flex h-full min-h-0 flex-col items-center justify-center gap-8 rounded-2xl border border-slate-700 bg-slate-800/50 p-6 text-center">
                 <div>
                   <p className="text-4xl font-bold text-white sm:text-5xl">(주)이에이시스템</p>
                   <p className="mt-1 text-lg text-slate-400">(Engineering for Aerospace system)</p>
@@ -417,11 +429,14 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 오른쪽: 문의 폼 */}
-              <ContactForm />
+                {/* 오른쪽: 문의 폼 */}
+                <ContactForm />
+              </div>
             </div>
+          </div>
 
-            {/* 지도: API 키 있으면 Maps Embed API place 모드(주소 검색 + 줌 설정), 없으면 등록한 공유 링크 embed */}
+          {/* 지도: API 키 있으면 Maps Embed API place 모드(주소 검색 + 줌 설정), 없으면 등록한 공유 링크 embed */}
+          <div className="mx-auto max-w-6xl px-6 pt-8 pb-16 sm:px-8">
             <div className="relative w-full overflow-hidden rounded-2xl border border-slate-700 bg-slate-800/50">
               <div
                 className="absolute left-1/2 top-6 z-10 -translate-x-1/2 rounded-lg border border-slate-600 bg-white px-4 py-2 shadow-lg"
