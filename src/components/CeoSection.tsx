@@ -26,7 +26,7 @@ export default function CeoSection() {
           <div className="min-w-0 flex-1 space-y-6">
           <div>
             <p className="text-2xl font-bold text-white">대표이사 박진호</p>
-            <p className="mt-2 text-lg text-slate-400">
+            <p className="mt-2 text-lg leading-relaxed text-slate-400 break-keep break-words">
               다목적 헬기 훈련 시뮬레이터 개발 · 한국형 기동헬기 MFCS 개발 · 한국형 기동헬기 훈련 시뮬레이터 개발 · 공격형 헬기 구조개조 및 시험 평가 · 고등훈련기 구성품 국산화 개발 · 차세대 전투기 구성품 개발
             </p>
           </div>
@@ -46,16 +46,16 @@ export default function CeoSection() {
 
           {expanded && (
             <>
-              <div>
+              <div className="min-w-0">
                 <p className="mb-2 inline-block rounded-full bg-slate-700 px-3 py-1 text-base font-medium text-indigo-300">특허</p>
-                <ul className="space-y-1 text-lg text-slate-400">
+                <ul className="space-y-1 text-lg leading-relaxed text-slate-400 break-keep break-words">
                   <li>POWER TRANSMISSION SHAFT / 특허(미국) 15536649(2015), 155536652(2015) 2건</li>
                   <li>동력전달축 / 특허(국내) 102014193167(2014), 1020140193163(2014), 1020170060326(2017)</li>
                 </ul>
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="mb-2 inline-block rounded-full bg-slate-700 px-3 py-1 text-base font-medium text-indigo-300">주요 실적</p>
-                <ul className="grid gap-2 text-lg text-slate-400 sm:grid-cols-2">
+                <ul className="grid min-w-0 gap-2 text-lg leading-relaxed text-slate-400 break-keep break-words sm:grid-cols-2 [&>li]:min-w-0">
                   <li>· 산화제 탱크, 발사체 주요 구조물 개발 / 이노스페이스 2019~2021</li>
                   <li>· 소형위성발사체 상단 엔진용 하이브리드 로켓추진기관 개발 / 중소기업기술정보진흥원 2019~2021</li>
                   <li>· 헬기용 7연장 2.75 로켓발사대 조립체 개발 / 국방기술진흥연구소 2016~2017</li>
@@ -68,9 +68,9 @@ export default function CeoSection() {
                   <li>· 다목적 헬기 훈련장비 개발 / 자체 개발 2005~2006</li>
                 </ul>
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="mb-2 inline-block rounded-full bg-slate-700 px-3 py-1 text-base font-medium text-indigo-300">주요 논문</p>
-                <ul className="space-y-1 text-lg text-slate-400">
+                <ul className="space-y-1 text-lg leading-relaxed text-slate-400 break-keep break-words">
                   <li>· 항공기용 동력전달축의 진동시험 및 유한요소 해석 / 한국항공우주학회, 2018</li>
                   <li>· 동력 전달축의 안정성 평가를 위한 모드 해석 및 공진 속도 시험 / 항공우주시스템공학회, 2020</li>
                   <li>· 림 구동형모터용 블레이드의 로터 구조 진동특성에 관한 연구 / 한국유체기계학회, 2025</li>

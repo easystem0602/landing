@@ -74,12 +74,19 @@ type CardItem = (typeof CARDS)[number];
 
 function PortfolioCard({ card, className = "" }: { card: CardItem; className?: string }) {
   return (
-    <div className={`flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-lg text-slate-900 ${className}`}>
+    <div className={`flex min-w-0 flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-lg text-slate-900 ${className}`}>
       <h3 className="mb-2 text-lg font-bold text-slate-900 sm:text-xl">{card.title}</h3>
       <p className="mb-4 text-sm leading-relaxed text-slate-600">{card.intro}</p>
-      <ul className="mb-4 list-inside list-disc space-y-1.5 text-sm text-slate-700">
+      <ul className="mb-4 min-w-0 space-y-1.5 text-sm text-slate-700">
         {card.items.map((item, i) => (
-          <li key={i}>{item}</li>
+          <li
+            key={i}
+            className="relative min-w-0 pl-4 before:absolute before:left-0 before:top-0 before:text-slate-700 before:content-['•']"
+          >
+            <span className="block truncate" title={item}>
+              {item}
+            </span>
+          </li>
         ))}
       </ul>
       <p className="mb-4 text-sm text-slate-500">{card.footer}</p>

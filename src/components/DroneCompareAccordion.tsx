@@ -1,54 +1,68 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
-const ITEMS = [
+type CompareRow = {
+  name: string;
+  value: ReactNode;
+  highlight: boolean;
+};
+
+type CompareItem = {
+  label: string;
+  rows: CompareRow[];
+};
+
+const ITEMS: CompareItem[] = [
   {
-    label: "임무환경",
+    label: "임무환경전환",
     rows: [
-      { name: "공수양용 드론", value: "공중·수중 복합", highlight: true },
-      { name: "공중 드론", value: "공중", highlight: false },
-      { name: "수중 드론", value: "수중", highlight: false },
+      { name: "공수양용 드론", value: "공중 ↔ 수중 전환", highlight: true },
+      { name: "공중 드론", value: "전환불가능 (공중운용 고정)", highlight: false },
+      { name: "수중 드론", value: "전환불가능 (수중운용 한정)", highlight: false },
     ],
   },
   {
-    label: "운용 해발고도·수심(m)",
+    label: "소음 특성",
     rows: [
-      { name: "공수양용 드론", value: "-30 ~ 5,000", highlight: true },
-      { name: "공중 드론", value: "0 ~ 5,000", highlight: false },
-      { name: "수중 드론", value: "-100 ~ 0", highlight: false },
+      { name: "공수양용 드론", value: "낮음", highlight: true },
+      { name: "공중 드론", value: "높음", highlight: false },
+      { name: "수중 드론", value: "높음", highlight: false },
     ],
   },
   {
-    label: "통신",
+    label: "방수·방진",
     rows: [
-      { name: "공수양용 드론", value: "무선", highlight: true },
-      { name: "공중 드론", value: "무선", highlight: false },
-      { name: "수중 드론", value: "유선", highlight: false },
+      { name: "공수양용 드론", value: "완전 방수 구조", highlight: true },
+      { name: "공중 드론", value: "생활 방수", highlight: false },
+      { name: "수중 드론", value: "완전 방수 구조", highlight: false },
     ],
   },
   {
-    label: "활용 분야",
+    label: "활용분야",
     rows: [
-      { name: "공수양용 드론", value: "항공촬영, 수중탐사, 정찰, 구조 등", highlight: true },
-      { name: "공중 드론", value: "항공촬영, 정찰, 조사", highlight: false },
-      { name: "수중 드론", value: "수중탐사, 구조", highlight: false },
-    ],
-  },
-  {
-    label: "IP 등급",
-    rows: [
-      { name: "공수양용 드론", value: "IP68", highlight: true },
-      { name: "공중 드론", value: "IP45", highlight: false },
-      { name: "수중 드론", value: "IP68", highlight: false },
+      {
+        name: "공수양용 드론",
+        value: (
+          <>
+            항공 촬영, 수중 탐사
+            <br />
+            지상 및 수중 구조물 점검
+          </>
+        ),
+        highlight: true,
+      },
+      { name: "공중 드론", value: "항공 촬영, 정찰", highlight: false },
+      { name: "수중 드론", value: "수중 탐사", highlight: false },
     ],
   },
 ];
 
 const INITIAL_COUNT = 2;
 
-function Card({ label, rows }: { label: string; rows: { name: string; value: string; highlight: boolean }[] }) {
+function Card({ label, rows }: CompareItem) {
   return (
     <div className="rounded-lg border border-slate-600/80 bg-slate-800/80 p-4">
       <p className="mb-2 text-sm font-medium text-slate-400">{label}</p>
@@ -71,7 +85,7 @@ export default function DroneCompareAccordion() {
   return (
     <div className="space-y-3 md:hidden">
       {visibleItems.map((item) => (
-        <Card key={item.label} label={item.label} rows={item.rows} />
+        <Card key={item.label} {...item} />
       ))}
       <div className="flex justify-center pt-2">
         <button
