@@ -4,6 +4,11 @@ import { useEffect, useRef } from "react";
 
 /**
  * 뷰포트에 들어올 때만 무음 재생, 벗어나면 일시정지 (대역·배터리 절약).
+ *
+ * 레이아웃:
+ * - PC: 하나의 16:9 행 안에 컨테이너 2개 → 높이 동일, 너비는 1번이 더 넓음(2:1)
+ * - 모바일: 세로 스택, 각 컨테이너는 16:9
+ * - 영상은 object-cover (잘림 허용)
  */
 export default function DroneCompareVideos() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -42,20 +47,27 @@ export default function DroneCompareVideos() {
     return () => observer.disconnect();
   }, []);
 
-  const frame =
-    "overflow-hidden rounded-lg border border-slate-600 bg-black";
-  const videoInner = "h-full w-full object-cover";
+  /** 컨테이너 내부: 꽉 채우기 + 라운드·테두리 */
+  const innerBox =
+    "relative h-full w-full min-h-0 overflow-hidden rounded-lg border border-slate-600 bg-black";
+
+  /** 1번: 오른쪽 기준 정렬 → 잘릴 때 왼쪽이 잘림 */
+  const video1Class =
+    "absolute inset-0 h-full w-full object-cover object-right";
+  const video2Class =
+    "absolute inset-0 h-full w-full object-cover object-center";
 
   return (
     <div
       ref={sectionRef}
-      className="mt-8 grid grid-cols-1 gap-4 md:mt-8 md:grid-cols-5 md:items-stretch md:gap-5"
+      className="mt-8 flex flex-col gap-4 md:mt-8 md:aspect-video md:w-full md:flex-row md:gap-5"
     >
-      <div className="min-w-0 md:col-span-3">
-        <div className={`aspect-video w-full ${frame}`}>
+      {/* 컨테이너 1 — 너비 더 넓게 (2 : 1) */}
+      <div className="aspect-video w-full min-h-0 min-w-0 md:aspect-auto md:h-full md:min-h-0 md:flex-[2]">
+        <div className={innerBox}>
           <video
             ref={video1Ref}
-            className={videoInner}
+            className={video1Class}
             muted
             loop
             playsInline
@@ -66,14 +78,13 @@ export default function DroneCompareVideos() {
           </video>
         </div>
       </div>
-      <div className="flex min-h-0 min-w-0 md:col-span-2 md:h-full">
-        {/* 모바일: 16:9 / PC: 왼쪽 열과 동일 행 높이로 맞춤 */}
-        <div
-          className={`aspect-video w-full ${frame} md:aspect-auto md:h-full md:min-h-0 md:w-full`}
-        >
+
+      {/* 컨테이너 2 — 동일 높이(PC에서는 부모 16:9 행 높이에 맞춤) */}
+      <div className="aspect-video w-full min-h-0 min-w-0 md:aspect-auto md:h-full md:min-h-0 md:flex-[1]">
+        <div className={innerBox}>
           <video
             ref={video2Ref}
-            className={videoInner}
+            className={video2Class}
             muted
             loop
             playsInline

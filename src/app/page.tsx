@@ -191,7 +191,7 @@ export default function Home() {
                     <li className="flex gap-2">
                       <span className="w-11 shrink-0 text-white">10월</span>
                       <span className="min-w-0">
-                        XXX사업 제품 3종 열해석
+                        제품 3종 열해석
                         <br />
                         착륙장치 시험용 가스스프링 개발
                       </span>
@@ -205,17 +205,17 @@ export default function Home() {
                   <ul className="space-y-3 text-lg text-slate-400">
                     <li className="flex gap-2"><span className="w-11 shrink-0 text-white">05월</span><span>항공 모빌리티 기체 구조좌굴 해석 기술 개발</span></li>
                     <li className="flex gap-2"><span className="w-11 shrink-0 text-white">07월</span><span>민/군 우주항공 모빌리티용 첨단 경량 구조 개발</span></li>
-                    <li className="flex gap-2"><span className="w-11 shrink-0 text-white">08월</span><span>701-13단 모션 사업 수주</span></li>
-                    <li className="flex gap-2"><span className="w-11 shrink-0 text-white">09월</span><span>자월도 6G PAV 착륙장치 조립·현장 설치 운용사업 수주</span></li>
+                    <li className="flex gap-2"><span className="w-11 shrink-0 text-white">08월</span><span>701-Ⅱ 3단 모션 장비 개발</span></li>
+                    <li className="flex gap-2"><span className="w-11 shrink-0 text-white">09월</span><span>자월도 6G PAV 착륙장치 조립·현장 설치</span></li>
                     <li className="flex gap-2">
                       <span className="w-11 shrink-0 text-white">10월</span>
                       <span className="min-w-0">
-                        SNOW 타이어 시험장비 개발 수주
+                        SNOW 타이어 시험장비 개발
                         <br />
-                        풍동시험장치 개발 수주
+                        풍동시험장치 개발
                       </span>
                     </li>
-                    <li className="flex gap-2"><span className="w-11 shrink-0 text-white">11월</span><span>수소모빌리티용 첨단 구조 설계·해석 연구</span></li>
+                    <li className="flex gap-2"><span className="w-11 shrink-0 text-white">11월</span><span>수소모빌리티용 첨단 구조 설계·해석</span></li>
                     <li className="flex gap-2">
                       <span className="w-11 shrink-0 text-white">12월</span>
                       <span className="min-w-0">
@@ -232,6 +232,17 @@ export default function Home() {
                     <li className="flex gap-2"><span className="w-11 shrink-0 text-white">02월</span><span>전방용 램펜슬 개발</span></li>
                     <li className="flex gap-2"><span className="w-11 shrink-0 text-white">06월</span><span>헬기 엔진 시험 리그 개발</span></li>
                     <li className="flex gap-2"><span className="w-11 shrink-0 text-white">12월</span><span>림 구동형모터용 블레이드 로터 구조 진동 특성 연구</span></li>
+                  </ul>
+                </div>
+                <div className="rounded-xl border border-slate-700 bg-slate-800/50 p-6 sm:p-8">
+                  <p className="mb-4 text-lg font-semibold text-indigo-300">2026년</p>
+                  <ul className="space-y-3 text-lg text-slate-400">
+                    <li className="flex gap-2">
+                      <span className="w-11 shrink-0 text-white">03월</span>
+                      <span className="min-w-0 break-keep break-words">
+                        특허출원 «공중 및 수중 운용이 가능한 림 구동형 추진장치 및 이를 이용한 드론»
+                      </span>
+                    </li>
                   </ul>
                 </div>
               </div>
